@@ -1,4 +1,8 @@
+ignoredBuiltDependencies:
+  - es5-ext
+  - utf-8-validate
 onlyBuiltDependencies:
   - '@heroui/shared-utils'
   - '@tailwindcss/oxide'
+  - bufferutil
   - sharp
