@@ -1,0 +1,31 @@
+{
+  "Home": {
+    "title1": "Trustline",
+    "title2": "Checker",
+    "subtitle": "あなたの信頼設定、今すぐ健康診断。",
+    "table": {
+      "header": {
+        "token": "トークン",
+        "rippling": "Rippling",
+        "limit": "上限",
+        "balance": "残高"
+      }
+    }
+  },
+  "WalletConnectButton": {
+    "label": "ウォレット接続",
+    "modal": {
+      "title": "ウォレットを選択してください",
+      "close": "閉じる"
+    }
+  },
+  "Error": {
+    "config": {
+      "label": "エラー"
+    },
+    "msg": {
+      "E_001_001": "ウォレットの接続に失敗しました",
+      "E_001_002": "対応していないネットワークです"
+    }
+  }
+}
