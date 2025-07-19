@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
-export function useAnalytics() {
+export function AnalyticsListener() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
@@ -13,4 +13,6 @@ export function useAnalytics() {
       page_path: url
     })
   }, [pathname, searchParams])
+
+  return null
 }
