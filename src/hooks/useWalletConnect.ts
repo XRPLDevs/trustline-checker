@@ -1,6 +1,7 @@
 import { Xumm } from 'xumm'
 import { useWalletStore, initialWallet, type Wallet } from '@/stores'
 import { WalletTypes, NetworkTypes, type WalletType } from '@/config/enum'
+import { getXummApiKey } from '@/utils'
 
 export function useWalletConnect() {
   const { connect, disconnect, type } = useWalletStore()
@@ -11,14 +12,12 @@ export function useWalletConnect() {
 
       switch (walletType) {
         case WalletTypes.XAMAN:
-          const xumm = new Xumm('b08e1736-b029-4ee3-afea-3eee68a4b45c')
+          const xumm = new Xumm(getXummApiKey())
           const response = await xumm.authorize()
 
           if (response instanceof Error || !response) {
             throw response
           }
-
-          console.log('response: ', response.me.networkType)
 
           wallet.type = WalletTypes.XAMAN
           wallet.account = response.me.account
