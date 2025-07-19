@@ -1,53 +1,71 @@
-# Next.js & HeroUI Template
+# Trustline Checker
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+A web application for checking XRPL (XRP Ledger) trustlines. Connect your wallet and view account information and trustline details.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+## Features
 
-## Technologies Used
+- **Wallet Connection**: Support for XAMAN, GemWallet, and Crossmark
+- **Multi-Network**: Mainnet, Testnet, Devnet, Xahau Mainnet/Testnet
+- **Account Info**: Display connected account details
+- **Trustline Check**: View account trustlines and details
+- **Internationalization**: Japanese and English support
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+## Tech Stack
 
-## How to Use
+- **Frontend**: Next.js 15, HeroUI v2, Tailwind CSS, TypeScript
+- **State Management**: Zustand, TanStack Query
+- **XRPL**: xrpl.js, XUMM SDK
 
-### Use the template with create-next-app
+## Getting Started
 
-To create a new project based on this template using `create-next-app`, run the following command:
+### Prerequisites
 
-```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+- Node.js 18+ 
+- npm, yarn, or pnpm
 
-### Install dependencies
-
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/XRPLDevs/trustline-checker.git
+cd trustline-checker
+
+# Install dependencies
 npm install
-```
 
-### Run the development server
-
-```bash
+# Start development server
 npm run dev
 ```
 
-### Setup pnpm (optional)
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+## Available Scripts
 
 ```bash
-public-hoist-pattern[]=*@heroui/*
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run format   # Format code with Biome
 ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
+This project is licensed under the [MIT License](LICENSE).
+
+## Links
+
+- [GitHub Repository](https://github.com/XRPLDevs/trustline-checker)
+- [XRPL Documentation](https://xrpl.org/docs/)
+- [HeroUI Documentation](https://heroui.com/)
+
+---
+
+**Trustline Checker** - Your trustline, now a health check.
