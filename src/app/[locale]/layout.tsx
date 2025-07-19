@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { Link } from '@heroui/link'
 import clsx from 'clsx'
 
@@ -50,6 +51,18 @@ export default async function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <head />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+        `}
+      </Script>
       <body
         className={clsx(
           'min-h-screen text-foreground bg-background font-sans antialiased',
