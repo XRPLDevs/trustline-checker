@@ -9,6 +9,7 @@ import { Providers } from '@/app/[locale]/providers'
 import { siteConfig } from '@/config/site'
 import { fontSans } from '@/config/fonts'
 import { Navbar } from '@/components/navbar'
+import { AnalyticsListener } from '@/components/analytics'
 // i18n
 import { hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
@@ -64,6 +65,7 @@ export default async function RootLayout({
         `}
       </Script>
       <body
+        suppressHydrationWarning
         className={clsx(
           'min-h-screen text-foreground bg-background font-sans antialiased',
           fontSans.variable
@@ -83,15 +85,16 @@ export default async function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://heroui.com?utm_source=next-app-template"
-                title="heroui.com homepage"
+                href="https://x.com/0xpokotaro"
+                title="pokotaro x account"
               >
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">HeroUI</p>
+                <p className="text-primary">pokotaro</p>
               </Link>
             </footer>
           </div>
         </Providers>
+        <AnalyticsListener />
         <Toaster position="bottom-left" richColors />
       </body>
     </html>
