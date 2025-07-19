@@ -19,6 +19,7 @@ import { NetworkType } from '@/config/enum'
 
 import { title, subtitle } from '@/components/primitives'
 import { useWalletStore } from '@/stores'
+import { useRequestAccountInfo } from '@/hooks/useRequestAccoutInfo'
 import { useRequestAccountLine } from '@/hooks/useRequestAccountLine'
 import { abbreviateString } from '@/utils/string'
 
@@ -27,6 +28,7 @@ export default function Content() {
 
   const { isConnected, account, network } = useWalletStore()
 
+  const { data: accountInfo } = useRequestAccountInfo()
   const { data: accountLines } = useRequestAccountLine()
 
   useEffect(() => {
