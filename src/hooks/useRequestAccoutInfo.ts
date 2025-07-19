@@ -1,19 +1,22 @@
 import { useQuery } from '@tanstack/react-query'
-import { useWalletStore } from '@/stores'
+import { useAccountStore, useWalletStore } from '@/stores'
 
-export function useRequestAccountLine() {
-  const { isConnected, account } = useWalletStore()
+export function useRequestAccountInfo() {
+  const { isConnected, account, network } = useWalletStore()
+  const { setAccount, setLoading } = useAccountStore()
 
   return useQuery({
-    queryKey: ['account-lines'],
+    queryKey: ['account-info'],
     queryFn: async () => {
+      setLoading(true)
       const response = await fetch(
-        `/api/xrpl/request/account-info?account=${account}`
+        `/api/xrpl/request/account-info?account=${account}&network=${network}`
       )
       const data = await response.json()
-      console.log('data: ', data)
+      setAccount(data)
+      setLoading(false)
       return data
     },
-    enabled: isConnected && !!account
+    enabled: isConnected && !!account && !!network
   })
 }
