@@ -1,0 +1,31 @@
+{
+  "Home": {
+    "title1": "Trustline",
+    "title2": "Checker",
+    "subtitle": "Check your trust settings now for a health diagnosis.",
+    "table": {
+      "header": {
+        "token": "Token",
+        "rippling": "Rippling",
+        "limit": "Limit",
+        "balance": "Balance"
+      }
+    }
+  },
+  "WalletConnectButton": {
+    "label": "Connect Wallet",
+    "modal": {
+      "title": "Please select a wallet",
+      "close": "Close"
+    }
+  },
+  "Error": {
+    "config": {
+      "label": "Error"
+    },
+    "msg": {
+      "E_001_001": "Failed to connect wallet",
+      "E_001_002": "Unsupported network"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "Home": {
+    "title1": "Trustline",
+    "title2": "Checker",
+    "subtitle": "تحقق من إعدادات الثقة الخاصة بك الآن للتشخيص الصحي.",
+    "table": {
+      "header": {
+        "token": "الرمز المميز",
+        "rippling": "Rippling",
+        "limit": "الحد",
+        "balance": "الرصيد"
+      }
+    }
+  },
+  "WalletConnectButton": {
+    "label": "ربط المحفظة",
+    "modal": {
+      "title": "يرجى اختيار محفظة",
+      "close": "إغلاق"
+    }
+  },
+  "Error": {
+    "config": {
+      "label": "خطأ"
+    },
+    "msg": {
+      "E_001_001": "فشل في ربط المحفظة",
+      "E_001_002": "شبكة غير مدعومة"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "Home": {
+    "title1": "Trustline",
+    "title2": "Checker",
+    "subtitle": "立即检查您的信任设置，进行健康诊断。",
+    "table": {
+      "header": {
+        "token": "代币",
+        "rippling": "Rippling",
+        "limit": "限额",
+        "balance": "余额"
+      }
+    }
+  },
+  "WalletConnectButton": {
+    "label": "连接钱包",
+    "modal": {
+      "title": "请选择钱包",
+      "close": "关闭"
+    }
+  },
+  "Error": {
+    "config": {
+      "label": "错误"
+    },
+    "msg": {
+      "E_001_001": "钱包连接失败",
+      "E_001_002": "不支持的网络"
+    }
+  }
+}

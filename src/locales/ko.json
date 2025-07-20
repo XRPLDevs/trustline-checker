@@ -1,0 +1,31 @@
+{
+  "Home": {
+    "title1": "Trustline",
+    "title2": "Checker",
+    "subtitle": "신뢰 설정을 지금 바로 건강 진단하세요.",
+    "table": {
+      "header": {
+        "token": "토큰",
+        "rippling": "Rippling",
+        "limit": "한도",
+        "balance": "잔액"
+      }
+    }
+  },
+  "WalletConnectButton": {
+    "label": "지갑 연결",
+    "modal": {
+      "title": "지갑을 선택해 주세요",
+      "close": "닫기"
+    }
+  },
+  "Error": {
+    "config": {
+      "label": "오류"
+    },
+    "msg": {
+      "E_001_001": "지갑 연결에 실패했습니다",
+      "E_001_002": "지원하지 않는 네트워크입니다"
+    }
+  }
+}
