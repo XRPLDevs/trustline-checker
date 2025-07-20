@@ -9,21 +9,19 @@ import { XRPL_NETWORKS } from '@/config/constants'
 import { NetworkType } from '@/config/enum'
 import { useRequestAccountInfo } from '@/hooks'
 import { useWalletStore } from '@/stores'
-import { abbreviateString } from '@/utils'
+import type { AccountInfoRes } from '@/app/api/xrpl/request/account-info/schema'
 
 const tabItems = [
   {
     id: 'account-info',
     label: 'Account Info'
-  },
-  {
-    id: 'account-lines',
-    label: 'Account Lines'
   }
 ]
 
 export function CardAccountInfo() {
-  const [accountRoot, setAccountRoot] = useState<any>(null)
+  const [accountRoot, setAccountRoot] = useState<AccountInfoRes['root'] | null>(
+    null
+  )
 
   const { account, network } = useWalletStore()
 
@@ -31,18 +29,16 @@ export function CardAccountInfo() {
 
   useEffect(() => {
     if (accountInfo) {
-      setAccountRoot(accountInfo.account_root)
+      setAccountRoot(accountInfo.root)
     }
   }, [accountInfo])
 
   return (
-    <Card className="w-md">
+    <Card className="w-lg">
       <CardHeader className="flex justify-between items-center">
         <div className="flex items-center gap-4">
           <div className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-default-600">
-              {abbreviateString(account, 10, 5)}
-            </p>
+            <p className="text-sm font-semibold text-default-600">{account}</p>
             <Chip
               color={XRPL_NETWORKS[network as NetworkType]?.color || 'default'}
               variant="dot"
@@ -63,54 +59,33 @@ export function CardAccountInfo() {
                   Domain
                 </span>
                 <span className="text-sm text-right text-default-900">
-                  {accountRoot?.domain || 'N/A'}
+                  {accountRoot?.domain || '未設定'}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4 items-center">
                 <span className="text-sm font-medium text-default-600">
-                  Balance
+                  RegularKey
                 </span>
                 <span className="text-sm text-right text-default-900">
-                  {accountRoot?.Balance || 'N/A'}
+                  {accountRoot?.regularKey || '未設定'}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4 items-center">
                 <span className="text-sm font-medium text-default-600">
-                  Sequence
+                  EmailHash
                 </span>
                 <span className="text-sm text-right text-default-900">
-                  {accountRoot?.Sequence || 'N/A'}
+                  {accountRoot?.emailHash || '未設定'}
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4 items-center">
                 <span className="text-sm font-medium text-default-600">
-                  Flags
+                  MessageKey
                 </span>
                 <span className="text-sm text-right text-default-900">
-                  {accountRoot?.Flags || 'N/A'}
+                  {accountRoot?.messageKey || '未設定'}
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-4 items-center">
-                <span className="text-sm font-medium text-default-600">
-                  Owner Count
-                </span>
-                <span className="text-sm text-right text-default-900">
-                  {accountRoot?.OwnerCount || 'N/A'}
-                </span>
-              </div>
-              <div className="grid grid-cols-2 gap-4 items-center">
-                <span className="text-sm font-medium text-default-600">
-                  Transfer Rate
-                </span>
-                <span className="text-sm text-right text-default-900">
-                  {accountRoot?.TransferRate || 'N/A'}
-                </span>
-              </div>
-            </div>
-          </Tab>
-          <Tab key="account-lines" title="Account Lines">
-            <div className="text-center text-default-500 py-4">
-              Account lines data will be displayed here
             </div>
           </Tab>
         </Tabs>

@@ -1,98 +1,62 @@
-import type { AccountInfoResponse } from 'xrpl'
 import type {
-  MappedAccountData,
-  MappedAccountFlags,
-  MappedQueueData,
-  MappedAccountInfoResponse
-} from '@/app/api/xrpl/request/account-info/types'
+  AccountInfoRaw,
+  AccountInfoRes
+} from '@/app/api/xrpl/request/account-info/schema'
 
-const mapAccountRoot = (
-  input: AccountInfoResponse['result']['account_data']
-): MappedAccountData => {
-  if (!input) {
-    throw new Error('Account data is required')
-  }
+export const mapAccountInfoResponse = (raw: AccountInfoRaw): AccountInfoRes => {
+  const r = raw.result
+
+  const root = r.account_data
+  const flags = r.account_flags
+  const queue = r.queue_data
 
   return {
-    account: input.Account,
-    balance: input.Balance,
-    flags: input.Flags,
-    ledgerEntryType: input.LedgerEntryType,
-    ownerCount: input.OwnerCount,
-    sequence: input.Sequence,
-    accountTxnID: input.AccountTxnID ?? '',
-    ammID: input.AMMID ?? '',
-    domain: input.Domain ?? '',
-    emailHash: input.EmailHash ?? '',
-    messageKey: input.MessageKey ?? '',
-    regularKey: input.RegularKey ?? '',
-    ticketCount: input.TicketCount ?? 0,
-    tickSize: input.TickSize ?? 0,
-    transferRate: input.TransferRate ?? 0,
-    walletLocator: input.WalletLocator ?? '',
-    burnedNFTokens: input.BurnedNFTokens ?? 0,
-    firstNFTSequence: input.FirstNFTSequence ?? 0,
-    mintedNFTokens: input.MintedNFTokens ?? 0,
-    nftokenMinter: input.NFTokenMinter ?? ''
-  }
-}
-
-const mapAccountFlags = (
-  input: AccountInfoResponse['result']['account_flags']
-): MappedAccountFlags => {
-  if (!input) {
-    return null
-  }
-
-  return {
-    defaultRipple: input.defaultRipple,
-    depositAuth: input.depositAuth,
-    disableMasterKey: input.disableMasterKey,
-    disallowIncomingCheck: input.disallowIncomingCheck ?? false,
-    disallowIncomingNFTokenOffer: input.disallowIncomingNFTokenOffer ?? false,
-    disallowIncomingPayChan: input.disallowIncomingPayChan ?? false,
-    disallowIncomingTrustline: input.disallowIncomingTrustline ?? false,
-    disallowIncomingXRP: input.disallowIncomingXRP,
-    globalFreeze: input.globalFreeze,
-    noFreeze: input.noFreeze,
-    passwordSpent: input.passwordSpent,
-    requireAuthorization: input.requireAuthorization,
-    requireDestinationTag: input.requireDestinationTag,
-    allowTrustLineClawback: input.allowTrustLineClawback
-  }
-}
-
-export const mapQueueData = (
-  input: AccountInfoResponse['result']['queue_data']
-): MappedQueueData => {
-  if (!input) {
-    return null
-  }
-
-  return {
-    txnCount: input.txn_count,
-    authChangeQueued: input.auth_change_queued ?? false,
-    lowestSequence: input.lowest_sequence ?? 0,
-    highestSequence: input.highest_sequence ?? 0,
-    maxSpendDropsTotal: input.max_spend_drops_total ?? '',
-    transactions: input.transactions ?? []
-  }
-}
-
-export const mapAccountInfoResponse = (
-  input: AccountInfoResponse
-): MappedAccountInfoResponse => {
-  const result = input.result
-
-  const accountData = mapAccountRoot(result.account_data)
-  const accountFlags = mapAccountFlags(result.account_flags)
-  const queueData = mapQueueData(result.queue_data)
-
-  return {
-    accountData,
-    accountFlags,
-    queueData,
-    ledgerCurrentIndex: result.ledger_current_index ?? 0,
-    validated: result.validated ?? false
+    root: {
+      account: root.Account,
+      balance: root.Balance,
+      flags: root.Flags,
+      ledgerEntryType: root.LedgerEntryType,
+      ownerCount: root.OwnerCount,
+      sequence: root.Sequence ?? 0,
+      accountTxnID: root.AccountTxnID ?? '',
+      ammID: root.AMMID ?? '',
+      domain: root.Domain ?? '',
+      emailHash: root.EmailHash ?? '',
+      messageKey: root.MessageKey ?? '',
+      regularKey: root.RegularKey ?? '',
+      ticketCount: root.TicketCount ?? 0,
+      tickSize: root.TickSize ?? 0,
+      transferRate: root.TransferRate ?? 0,
+      walletLocator: root.WalletLocator ?? '',
+      burnedNFTokens: root.BurnedNFTokens ?? 0,
+      firstNFTSequence: root.FirstNFTSequence ?? 0,
+      mintedNFTokens: root.MintedNFTokens ?? 0,
+      nftokenMinter: root.NFTokenMinter ?? ''
+    },
+    flags: {
+      defaultRipple: flags?.defaultRipple ?? false,
+      depositAuth: flags?.depositAuth ?? false,
+      disableMasterKey: flags?.disableMasterKey ?? false,
+      disallowIncomingCheck: flags?.disallowIncomingCheck ?? false,
+      disallowIncomingNFTokenOffer:
+        flags?.disallowIncomingNFTokenOffer ?? false,
+      disallowIncomingPayChan: flags?.disallowIncomingPayChan ?? false,
+      disallowIncomingTrustline: flags?.disallowIncomingTrustline ?? false,
+      disallowIncomingXRP: flags?.disallowIncomingXRP ?? false,
+      globalFreeze: flags?.globalFreeze ?? false,
+      noFreeze: flags?.noFreeze ?? false,
+      passwordSpent: flags?.passwordSpent ?? false,
+      requireAuthorization: flags?.requireAuthorization ?? false,
+      requireDestinationTag: flags?.requireDestinationTag ?? false,
+      allowTrustLineClawback: flags?.allowTrustLineClawback ?? false
+    },
+    queue: {
+      txnCount: queue?.txn_count ?? 0,
+      authChangeQueued: queue?.auth_change_queued ?? false,
+      lowestSequence: queue?.lowest_sequence ?? 0,
+      highestSequence: queue?.highest_sequence ?? 0,
+      maxSpendDropsTotal: queue?.max_spend_drops_total ?? ''
+    },
+    ledgerCurrentIndex: r.ledger_current_index ?? 0
   }
 }
