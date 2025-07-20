@@ -1,45 +1,48 @@
-import type { AccountInfoResponse } from 'xrpl'
 import { NextResponse } from 'next/server'
-import { AccountInfoQuerySchema } from '@/app/api/xrpl/request/account-info/schema'
+import {
+  accountInfoReqSchema,
+  accountInfoResSchema,
+  accountInfoRawSchema
+} from '@/app/api/xrpl/request/account-info/schema'
 import { mapAccountInfoResponse } from '@/app/api/xrpl/request/account-info/mapper'
 import { XRPL_NETWORKS } from '@/config/constants'
+import { typedFetch } from '@/libs/typedFetch'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
-  const queryResult = AccountInfoQuerySchema.safeParse({
+  const requestChecked = accountInfoReqSchema.safeParse({
     network: searchParams.get('network'),
     account: searchParams.get('account')
   })
 
-  if (!queryResult.success) {
+  if (!requestChecked.success) {
     return NextResponse.json(
-      {
-        error: queryResult.error.message
-      },
+      { error: 'Invalid parameters', issues: requestChecked.error.issues },
       { status: 400 }
     )
   }
 
-  const { account, network } = queryResult.data
+  const { account, network } = requestChecked.data
 
-  const response = await fetch(XRPL_NETWORKS[network].url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      method: 'account_info',
-      params: [
-        {
-          account: account
-        }
-      ]
+  try {
+    const raw = await typedFetch.post({
+      url: XRPL_NETWORKS[network].url,
+      schema: accountInfoRawSchema,
+      body: {
+        method: 'account_info',
+        params: [{ account }]
+      }
     })
-  })
 
-  const data = (await response.json()) as AccountInfoResponse
-  const accountInfo = mapAccountInfoResponse(data)
+    const response = accountInfoResSchema.parse(mapAccountInfoResponse(raw))
 
-  return NextResponse.json(accountInfo)
+    return NextResponse.json(response)
+  } catch (error) {
+    console.error(error)
+    return NextResponse.json(
+      { error: 'Internal Server Error' },
+      { status: 500 }
+    )
+  }
 }
