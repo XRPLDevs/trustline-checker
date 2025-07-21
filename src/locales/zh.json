@@ -37,5 +37,18 @@
       "E_001_001": "钱包连接失败",
       "E_001_002": "不支持的网络"
     }
+  },
+  "About": {
+    "title": "TrustlineChecker",
+    "lead1": "TrustlineChecker 是一个让 XRP Ledger 账户管理更智能、更安全的一体化平台。",
+    "lead2": "信任线检查与设置、AccountRoot 更新、钱包安全管理—all in one。",
+    "lead3": "兼具可靠性与高效性，为全球 XRPL 用户带来安心体验。",
+    "project": "项目概述",
+    "project1": "TrustlineChecker 是一个全球平台，随着 XRPL 生态系统的扩展，账户管理变得越来越重要，用户可以安全直观地管理信任线和账户根。",
+    "project2": "充分利用 XRPL 灵活的账户设置（如 Trust Lines、AccountSet），满足 DeFi、NFT、跨境支付等增长领域用户的需求。",
+    "features": "主要特性",
+    "feature1": "信任线管理（使用 account_lines 方法）：\n・只需几次点击即可添加或删除信任线\n・实时显示信任线状态（余额、限额、货币代码）",
+    "feature2": "账户根管理（使用 account_info 方法）：\n・可视化 AccountRoot 详情（XRP 余额、序列号、Flags 等）\n・简化设置更改（如 Require Auth、No Freeze、Domain）",
+    "feature3": "全球优化：\n・支持多语言界面（阿拉伯语、英语、日语、韩语、中文）"
   }
 }
