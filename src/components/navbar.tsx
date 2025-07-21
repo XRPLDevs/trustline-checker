@@ -1,5 +1,6 @@
 'use client'
 
+import { useSearchParams } from 'next/navigation'
 import { useTheme } from 'next-themes'
 import {
   Navbar as HeroUINavbar,
@@ -9,11 +10,10 @@ import {
 } from '@heroui/navbar'
 import { Button } from '@heroui/button'
 import { Link } from '@heroui/link'
-import { link as linkStyles } from '@heroui/theme'
 import NextLink from 'next/link'
-import clsx from 'clsx'
 import { useIsSSR } from '@react-aria/ssr'
 import { Calendar, Languages, Github, Sun, Moon } from 'lucide-react'
+import { useRouter, usePathname } from '@/i18n/navigation'
 import { siteConfig } from '@/config/site'
 import {
   Modal,
@@ -22,8 +22,6 @@ import {
   ModalBody,
   useDisclosure
 } from '@heroui/modal'
-import { useRouter, usePathname } from '@/i18n/navigation'
-import { useSearchParams } from 'next/navigation'
 import { WalletConnectButton } from '@/components/wallet-connect-button'
 import { WalletMenuButton } from '@/components/wallet-menu-button'
 import { useWalletStore } from '@/stores'
@@ -67,22 +65,20 @@ export const Navbar = () => {
             <p className="text-xl font-bold">TrustlineChecker</p>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: 'foreground' }),
-                  'data-[active=true]:text-primary data-[active=true]:font-medium'
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </ul>
+        {siteConfig.navItems.map((item) => (
+          <NavbarItem key={item.href}>
+            <Link
+              aria-current="page"
+              color="foreground"
+              className="cursor-pointer"
+              onPress={() => {
+                router.push(item.href)
+              }}
+            >
+              {item.label}
+            </Link>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent

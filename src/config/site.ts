@@ -14,10 +14,19 @@ export const siteConfig: {
 } = {
   name: 'Trustline Checker',
   description: 'Your trustline, now a health check.',
-  navItems: [],
+  navItems: [
+    {
+      label: 'Home',
+      href: '/'
+    },
+    {
+      label: 'About',
+      href: '/about'
+    }
+  ],
   links: {
     github: 'https://github.com/XRPLDevs/trustline-checker',
-    roadmap: 'https://github.com/orgs/XRPLDevs/projects/2',
+    roadmap: 'https://github.com/orgs/XRPLDevs/projects/2'
     // twitter: 'https://twitter.com/hero_ui',
     // docs: 'https://heroui.com',
     // discord: 'https://discord.gg/9b6yyZKmH4',
