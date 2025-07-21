@@ -2,7 +2,9 @@
   "Home": {
     "title1": "Trustline",
     "title2": "Checker",
-    "subtitle": "立即检查您的信任设置，进行健康诊断。",
+    "subtitle": "您的钱包配置真的安全吗？",
+    "description": "本服务旨在检查钱包状态并根据需要安全更新。",
+    "alert": "目前仅实现了 Domain 和 EmailHash 的查看功能。其他功能将在未来添加。",
     "table": {
       "header": {
         "token": "代币",
@@ -12,12 +14,20 @@
       }
     }
   },
+  "CardAccountInfo": {
+    "trustlines": {
+      "description": "准备中"
+    }
+  },
   "WalletConnectButton": {
     "label": "连接钱包",
     "modal": {
       "title": "请选择钱包",
       "close": "关闭"
     }
+  },
+  "WalletMenuButton": {
+    "disconnect": "断开"
   },
   "Error": {
     "config": {

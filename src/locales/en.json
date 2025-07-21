@@ -2,7 +2,9 @@
   "Home": {
     "title1": "Trustline",
     "title2": "Checker",
-    "subtitle": "Check your trust settings now for a health diagnosis.",
+    "subtitle": "Is your wallet configuration really safe?",
+    "description": "This service aims to check the status of your wallet and update it safely as needed.",
+    "alert": "Currently, only the Domain and EmailHash features are implemented. Other items will be added in the future.",
     "table": {
       "header": {
         "token": "Token",
@@ -12,12 +14,20 @@
       }
     }
   },
+  "CardAccountInfo": {
+    "trustlines": {
+      "description": "Coming soon"
+    }
+  },
   "WalletConnectButton": {
     "label": "Connect Wallet",
     "modal": {
       "title": "Please select a wallet",
       "close": "Close"
     }
+  },
+  "WalletMenuButton": {
+    "disconnect": "Disconnect"
   },
   "Error": {
     "config": {

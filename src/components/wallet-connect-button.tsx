@@ -47,7 +47,7 @@ export const WalletConnectButton = () => {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen}>
+      <Button variant="solid" color="primary" onPress={onOpen}>
         {t('label')}
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

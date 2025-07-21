@@ -24,6 +24,9 @@ import {
 } from '@heroui/modal'
 import { useRouter, usePathname } from '@/i18n/navigation'
 import { useSearchParams } from 'next/navigation'
+import { WalletConnectButton } from '@/components/wallet-connect-button'
+import { WalletMenuButton } from '@/components/wallet-menu-button'
+import { useWalletStore } from '@/stores'
 
 enum Locale {
   EN = 'en',
@@ -36,6 +39,7 @@ enum Locale {
 export const Navbar = () => {
   const isSSR = useIsSSR()
   const { theme, setTheme } = useTheme()
+  const { isConnected } = useWalletStore()
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
   const router = useRouter()
@@ -159,6 +163,7 @@ export const Navbar = () => {
               </ModalBody>
             </ModalContent>
           </Modal>
+          {isConnected ? <WalletMenuButton /> : <WalletConnectButton />}
         </NavbarItem>
         {/*
         <NavbarItem className="hidden md:flex">

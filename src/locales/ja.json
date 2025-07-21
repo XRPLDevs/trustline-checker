@@ -2,7 +2,9 @@
   "Home": {
     "title1": "Trustline",
     "title2": "Checker",
-    "subtitle": "あなたの信頼設定、今すぐ健康診断。",
+    "subtitle": "あなたのウォレット設定、本当に安全ですか？",
+    "description": "ウォレットの状態を確認し、必要に応じて安全に整えることを目的としています。",
+    "alert": "現在は Domain と EmailHash の参照機能のみ実装しています。その他の項目は今後追加予定です。",
     "table": {
       "header": {
         "token": "トークン",
@@ -12,12 +14,20 @@
       }
     }
   },
+  "CardAccountInfo": {
+    "trustlines": {
+      "description": "準備中"
+    }
+  },
   "WalletConnectButton": {
     "label": "ウォレット接続",
     "modal": {
       "title": "ウォレットを選択してください",
       "close": "閉じる"
     }
+  },
+  "WalletMenuButton": {
+    "disconnect": "ウォレットを切断"
   },
   "Error": {
     "config": {
