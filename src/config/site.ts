@@ -9,13 +9,15 @@ export const siteConfig: {
   }[]
   links: {
     github: string
+    roadmap: string
   }
 } = {
   name: 'Trustline Checker',
   description: 'Your trustline, now a health check.',
   navItems: [],
   links: {
-    github: 'https://github.com/XRPLDevs/trustline-checker'
+    github: 'https://github.com/XRPLDevs/trustline-checker',
+    roadmap: 'https://github.com/orgs/XRPLDevs/projects/2',
     // twitter: 'https://twitter.com/hero_ui',
     // docs: 'https://heroui.com',
     // discord: 'https://discord.gg/9b6yyZKmH4',
