@@ -13,7 +13,7 @@ import { link as linkStyles } from '@heroui/theme'
 import NextLink from 'next/link'
 import clsx from 'clsx'
 import { useIsSSR } from '@react-aria/ssr'
-import { Languages, Github, Sun, Moon } from 'lucide-react'
+import { Calendar, Languages, Github, Sun, Moon } from 'lucide-react'
 import { siteConfig } from '@/config/site'
 import {
   Modal,
@@ -63,7 +63,8 @@ export const Navbar = () => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <p className="font-bold text-inherit">Trustline Checker</p>
+            <img src="/logo.png" alt="Trustline Checker" className="w-8 h-8" />
+            <p className="text-xl font-bold">TrustlineChecker</p>
           </NextLink>
         </NavbarBrand>
         <ul className="hidden lg:flex gap-4 justify-start ml-2">
@@ -91,6 +92,9 @@ export const Navbar = () => {
         <NavbarItem className="hidden sm:flex gap-2">
           <Link isExternal aria-label="Github" href={siteConfig.links.github}>
             <Github className="text-default-500" />
+          </Link>
+          <Link isExternal aria-label="Roadmap" href={siteConfig.links.roadmap}>
+            <Calendar className="text-default-500" />
           </Link>
           <Button
             variant="faded"
