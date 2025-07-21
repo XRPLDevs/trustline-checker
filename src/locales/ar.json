@@ -2,7 +2,9 @@
   "Home": {
     "title1": "Trustline",
     "title2": "Checker",
-    "subtitle": "تحقق من إعدادات الثقة الخاصة بك الآن للتشخيص الصحي.",
+    "subtitle": "هل إعدادات محفظتك آمنة حقاً؟",
+    "description": "يهدف هذا الخدمة إلى التحقق من حالة المحفظة وتحديثها بأمان حسب الحاجة.",
+    "alert": "الآن فقط المجال و EmailHash للإشارة المدعومة. سيتم إضافة المزيد في المستقبل.",
     "table": {
       "header": {
         "token": "الرمز المميز",
@@ -12,12 +14,20 @@
       }
     }
   },
+  "CardAccountInfo": {
+    "trustlines": {
+      "description": "قريبا"
+    }
+  },
   "WalletConnectButton": {
     "label": "ربط المحفظة",
     "modal": {
       "title": "يرجى اختيار محفظة",
       "close": "إغلاق"
     }
+  },
+  "WalletMenuButton": {
+    "disconnect": "تقطيع"
   },
   "Error": {
     "config": {
