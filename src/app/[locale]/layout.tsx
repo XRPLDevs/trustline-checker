@@ -3,6 +3,7 @@ import { Metadata, Viewport } from 'next'
 import Script from 'next/script'
 import { Link } from '@heroui/link'
 import clsx from 'clsx'
+import Image from 'next/image'
 
 import { Providers } from '@/app/[locale]/providers'
 
@@ -81,16 +82,56 @@ export default async function RootLayout({
             <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://x.com/0xpokotaro"
-                title="pokotaro x account"
-              >
+            <footer className="w-full border-t bg-background/80 backdrop-blur flex items-center justify-between py-4 px-6 text-sm">
+              {/* Left: Service Name & Operator */}
+              <div className="flex items-center gap-2">
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">pokotaro</p>
-              </Link>
+                <Link
+                  isExternal
+                  href="https://x.com/0xpokotaro"
+                  title="pokotaro x account"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  pokotaro
+                </Link>
+              </div>
+
+              {/* Center: Navigation */}
+              <nav className="flex gap-4">
+                <Link
+                  href={`/${locale}/about`}
+                  className="hover:underline text-default-600"
+                >
+                  About
+                </Link>
+              </nav>
+
+              {/* Right：Sponsored by */}
+              <div className="flex items-center gap-2">
+                <span className="text-default-600">Sponsored by</span>
+                <Link
+                  href="https://www.ruckplus-tech.io/"
+                  target="_blank"
+                  className="hover:underline text-default-600"
+                >
+                  <div className="relative w-[100px] h-8">
+                    {/* Light mode */}
+                    <Image
+                      src="/partners/ruckplus-light.png"
+                      alt="Ruckplus"
+                      fill
+                      className="object-contain block dark:hidden"
+                    />
+                    {/* Dark mode */}
+                    <Image
+                      src="/partners/ruckplus-dark.png"
+                      alt="Ruckplus"
+                      fill
+                      className="object-contain hidden dark:block"
+                    />
+                  </div>
+                </Link>
+              </div>
             </footer>
           </div>
         </Providers>

@@ -14,6 +14,62 @@
       }
     }
   },
+  "AboutPage": {
+    "title": "关于 TrustlineChecker",
+    "invest": {
+      "title": "支持与投资请求",
+      "descriptions": {
+        "0": "TrustlineChecker 是一个安全中心化的仪表盘工具，允许用户在 XRPL 上安全地管理账户。",
+        "1": "可视化您的账户信任的代币和发行者，早期发现漏洞，并支持提高安全意识。"
+      },
+      "contact": "如果您有兴趣，请随时联系我们。"
+    },
+    "introduction": {
+      "title": "介绍",
+      "descriptions": {
+        "0": "TrustlineChecker 是一个安全中心化的仪表盘工具，允许用户在 XRPL 上安全地管理账户。",
+        "1": "可视化您的账户信任的代币和发行者，早期发现漏洞，并支持提高安全意识。"
+      }
+    },
+    "context": {
+      "title": "XRPL 中隐藏的“看不见的风险”",
+      "descriptions": {
+        "0": "XRPL 具有与其他区块链相比，账户可以设置的项目非常多的特点。",
+        "1": "这种灵活性既是优点也是风险。如果不完全理解设置内容，可能会导致意想不到的漏洞。",
+        "2": "这种情况可能会导致欺诈和资产损失。"
+      }
+    },
+    "trend": {
+      "title": "安全意识日益重要的 XRPL 时代",
+      "descriptions": {
+        "0": "近年来，XRPL 中对稳定币和 RWA（Real World Asset）等需要更高安全性的资产的处理需求增加。",
+        "1": "作为企业利用前提的 XRPL，账户设置的管理和可视化已经成为不可或缺的要素。"
+      }
+    },
+    "about": {
+      "title": "TrustlineChecker 是什么？",
+      "descriptions": {
+        "0": "TrustlineChecker 是一个安全工具，允许任何人轻松检查和管理 XRPL 账户状态。",
+        "1": "通过以下功能保护您的资产。",
+        "2": "不仅仅是检查工具，它也是学习 XRPL 安全使用方式的“学习伙伴”。"
+      },
+      "features": {
+        "0": "信任线列表显示：可视化信任的代币和发行者",
+        "1": "风险可视化：自动检查可疑发行者和过度设置",
+        "2": "设置项目解释：解释每个设置的意义和安全风险",
+        "3": "学习空间：设计使学习 XRPL 安全有趣"
+      }
+    },
+    "vision": {
+      "title": "安全 XRPL 生活的愿景",
+      "descriptions": {
+        "0": "TrustlineChecker 致力于为 XRPL 用户提供安全、智能的账户管理体验。",
+        "1": "通过可视化账户状态和设置，帮助用户轻松掌握账户安全，降低风险。",
+        "2": "“只信任你能信任的东西”",
+        "3": "——TrustlineChecker 支持透明且安全的 Web3 体验。"
+      }
+    }
+  },
   "CardAccountInfo": {
     "trustlines": {
       "description": "准备中"
@@ -37,18 +93,5 @@
       "E_001_001": "钱包连接失败",
       "E_001_002": "不支持的网络"
     }
-  },
-  "About": {
-    "title": "TrustlineChecker",
-    "lead1": "TrustlineChecker 是一个让 XRP Ledger 账户管理更智能、更安全的一体化平台。",
-    "lead2": "信任线检查与设置、AccountRoot 更新、钱包安全管理—all in one。",
-    "lead3": "兼具可靠性与高效性，为全球 XRPL 用户带来安心体验。",
-    "project": "项目概述",
-    "project1": "TrustlineChecker 是一个全球平台，随着 XRPL 生态系统的扩展，账户管理变得越来越重要，用户可以安全直观地管理信任线和账户根。",
-    "project2": "充分利用 XRPL 灵活的账户设置（如 Trust Lines、AccountSet），满足 DeFi、NFT、跨境支付等增长领域用户的需求。",
-    "features": "主要特性",
-    "feature1": "信任线管理（使用 account_lines 方法）：\n・只需几次点击即可添加或删除信任线\n・实时显示信任线状态（余额、限额、货币代码）",
-    "feature2": "账户根管理（使用 account_info 方法）：\n・可视化 AccountRoot 详情（XRP 余额、序列号、Flags 等）\n・简化设置更改（如 Require Auth、No Freeze、Domain）",
-    "feature3": "全球优化：\n・支持多语言界面（阿拉伯语、英语、日语、韩语、中文）"
   }
 }

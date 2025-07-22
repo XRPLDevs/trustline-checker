@@ -14,6 +14,62 @@
       }
     }
   },
+  "AboutPage": {
+    "title": "About TrustlineChecker",
+    "invest": {
+      "title": "Request for Support and Investment",
+      "descriptions": {
+        "0": "TrustlineChecker is a security-focused dashboard tool for safely operating accounts on the XRPL.",
+        "1": "Visualize your account's trusted tokens and issuers, detect vulnerabilities early, and support improving security literacy."
+      },
+      "contact": "If you are interested, please feel free to contact us."
+    },
+    "introduction": {
+      "title": "Introduction",
+      "descriptions": {
+        "0": "TrustlineChecker is a security-focused dashboard tool for safely operating accounts on the XRPL.",
+        "1": "Visualize your account's trusted tokens and issuers, detect vulnerabilities early, and support improving security literacy."
+      }
+    },
+    "context": {
+      "title": "The Invisible Risks Hidden in XRPL",
+      "descriptions": {
+        "0": "XRPL has a unique feature of having many settings that can be configured for accounts compared to other blockchains.",
+        "1": "This flexibility is both an advantage and a risk. If you use it without fully understanding the settings, you may end up with unintended vulnerabilities.",
+        "2": "This situation can lead to fraud and asset loss."
+      }
+    },
+    "trend": {
+      "title": "The Era of Security Awareness in XRPL",
+      "descriptions": {
+        "0": "In recent years, the need for higher security on XRPL, such as stablecoins and RWA (Real World Asset), has increased.",
+        "1": "As a foundation for corporate use, account setting management and visualization have become essential elements in XRPL."
+      }
+    },
+    "about": {
+      "title": "What is TrustlineChecker?",
+      "descriptions": {
+        "0": "TrustlineChecker is a security tool that allows anyone to easily check and manage their XRPL account status.",
+        "1": "Through the following features, it protects your assets.",
+        "2": "Not just a check tool, it also serves as a learning partner for understanding safe ways to use XRPL."
+      },
+      "features": {
+        "0": "TrustLine List Display: Visualize trusted tokens and issuers",
+        "1": "Risk Visualization: Automatically check for suspicious issuers and excessive settings",
+        "2": "Setting Item Explanation: Explain the meaning and security risks of each setting",
+        "3": "Learning Space: Design that makes learning XRPL security fun"
+      }
+    },
+    "vision": {
+      "title": "A Vision of a Safe XRPL Life for All Users",
+      "descriptions": {
+        "0": "TrustlineChecker aims to prevent asset damage from misconfiguration and misinterpretation.",
+        "1": "Anyone can easily understand their account status and use XRPL safely with a future where everyone can use XRPL with confidence.",
+        "2": "“Only trust what you can trust”",
+        "3": "—That transparent and secure Web3 experience is supported by TrustlineChecker."
+      }
+    }
+  },
   "CardAccountInfo": {
     "trustlines": {
       "description": "Coming soon"
@@ -37,18 +93,5 @@
       "E_001_001": "Failed to connect wallet",
       "E_001_002": "Unsupported network"
     }
-  },
-  "About": {
-    "title": "TrustlineChecker",
-    "lead1": "TrustlineChecker is an all-in-one platform that makes account management on the XRP Ledger smarter and safer.",
-    "lead2": "From trustline checks and settings, AccountRoot updates, to wallet security management—all in one place.",
-    "lead3": "Combining reliability and efficiency, we deliver a secure experience to XRPL users worldwide.",
-    "project": "Project Overview",
-    "project1": "TrustlineChecker is a global platform that allows users to safely and intuitively manage trustlines and account roots as account management becomes increasingly important with the expansion of the XRPL ecosystem.",
-    "project2": "By fully utilizing XRPL's flexible account settings (e.g., Trust Lines, AccountSet), we meet user needs in growing areas such as DeFi, NFT, and cross-border payments.",
-    "features": "Key Features",
-    "feature1": "Trustline Management (using account_lines method):\n・Add or remove trustlines in just a few clicks\n・View trustline status (balance, limit, currency code) in real time",
-    "feature2": "AccountRoot Management (using account_info method):\n・Visualize AccountRoot details (XRP balance, sequence number, flags, etc.)\n・Simplify settings changes (e.g., Require Auth, No Freeze, Domain)",
-    "feature3": "Global Optimization:\n・Multilingual interface (Arabic, English, Japanese, Korean, Chinese) supported"
   }
 }
