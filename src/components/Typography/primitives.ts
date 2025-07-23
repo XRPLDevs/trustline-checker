@@ -13,9 +13,19 @@ export const typography = tv({
       h4: 'text-xl md:text-2xl font-bold',
       h5: 'text-lg md:text-xl font-bold',
       h6: 'text-base md:text-lg font-bold',
+      pageTitle: 'text-2xl md:text-3xl font-bold',
       subtitle: 'text-sm md:text-base',
       body1: 'text-sm md:text-base',
       body2: 'text-sm md:text-base'
+    },
+    weight: {
+      thin: 'font-thin',
+      extralight: 'font-extralight',
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold'
     }
   },
   defaultVariants: {

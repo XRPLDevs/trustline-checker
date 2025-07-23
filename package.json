@@ -32,7 +32,9 @@
     "@heroui/tooltip": "^2.2.20",
     "@react-aria/ssr": "3.9.9",
     "@react-aria/visually-hidden": "3.8.25",
+    "@tanstack/react-form": "^1.14.1",
     "@tanstack/react-query": "^5.83.0",
+    "@xrplf/isomorphic": "^1.0.1",
     "clsx": "2.1.1",
     "framer-motion": "11.18.2",
     "intl-messageformat": "10.7.16",
@@ -46,6 +48,7 @@
     "uuid": "^11.1.0",
     "xrpl": "^4.3.0",
     "xumm": "^1.8.0",
+    "xumm-sdk": "^1.11.2",
     "zod": "^4.0.5",
     "zustand": "^5.0.6"
   },
@@ -62,5 +65,6 @@
     "tailwind-variants": "1.0.0",
     "tailwindcss": "4.1.11",
     "typescript": "5.6.3"
-  }
+  },
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
 }

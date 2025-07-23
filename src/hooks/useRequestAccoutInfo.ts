@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { useWalletStore } from '@/stores'
+import { hexToString } from '@/utils/string'
 import type { AccountInfoRes } from '@/app/api/xrpl/request/account-info/schema'
 
 export function useRequestAccountInfo() {
@@ -12,7 +13,13 @@ export function useRequestAccountInfo() {
         `/api/xrpl/request/account-info?account=${account}&network=${network}`
       )
       const data = await response.json()
-      return data
+      return {
+        ...data,
+        root: {
+          ...data.root,
+          domain: hexToString(data.root.domain)
+        }
+      }
     },
     enabled: isConnected && !!account && !!network
   })
