@@ -1,3 +1,4 @@
+import { XummSdk } from 'xumm-sdk'
 import { Xumm } from 'xumm'
 import { useWalletStore, initialWallet, type Wallet } from '@/stores'
 import { WalletTypes, NetworkTypes, type WalletType } from '@/config/enum'

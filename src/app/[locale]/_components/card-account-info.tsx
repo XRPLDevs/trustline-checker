@@ -88,8 +88,7 @@ export function CardAccountInfo() {
       <CardFooter className="flex justify-end">
         <Button
           color="primary"
-          onPress={() => router.push('/account-set')}
-          isDisabled
+          onPress={() => router.push('/account/info/update')}
         >
           アカウント情報を更新
         </Button>
