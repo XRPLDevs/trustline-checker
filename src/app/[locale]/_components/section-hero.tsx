@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { WalletConnectButton } from '@/components/wallet-connect-button'
 import { useWalletStore } from '@/stores'
 import { CardAccountInfo } from '@/app/[locale]/_components/card-account-info'

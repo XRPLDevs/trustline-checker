@@ -14,6 +14,9 @@
       }
     }
   },
+  "AccountInfoUpdatePage": {
+    "title": "Account Settings"
+  },
   "AboutPage": {
     "title": "About TrustlineChecker",
     "invest": {
@@ -67,6 +70,25 @@
         "1": "Anyone can easily understand their account status and use XRPL safely with a future where everyone can use XRPL with confidence.",
         "2": "“Only trust what you can trust”",
         "3": "—That transparent and secure Web3 experience is supported by TrustlineChecker."
+      }
+    }
+  },
+  "AccountInfoUpdate": {
+    "form": {
+      "button": "Send"
+    },
+    "modal": {
+      "title": "Sign the transaction in Xaman",
+      "button": "Open Xaman"
+    },
+    "toast": {
+      "success": {
+        "title": "Success",
+        "description": "Transaction sent."
+      },
+      "error": {
+        "title": "Error",
+        "description": "Transaction cancelled."
       }
     }
   },

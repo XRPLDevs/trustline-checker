@@ -14,6 +14,9 @@
       }
     }
   },
+  "AccountInfoUpdatePage": {
+    "title": "계정 설정"
+  },
   "AboutPage": {
     "title": "TrustlineChecker에 대하여",
     "invest": {
@@ -67,6 +70,25 @@
         "1": "누구나 쉽게 자신의 계정 상태를 이해하고 자신감 있게 XRPL를 사용할 수 있는 미래를 만듭니다.",
         "2": "“신뢰할 수 있는 것만 신뢰하세요”",
         "3": "—그런 투명하고 안전한 Web3 경험은 TrustlineChecker가 지원합니다."
+      }
+    }
+  },
+  "AccountInfoUpdate": {
+    "form": {
+      "button": "전송"
+    },
+    "modal": {
+      "title": "Xaman에서 트랜잭션 서명",
+      "button": "Xaman 열기"
+    },
+    "toast": {
+      "success": {
+        "title": "성공",
+        "description": "트랜잭션이 전송되었습니다."
+      },
+      "error": {
+        "title": "오류",
+        "description": "트랜잭션이 취소되었습니다."
       }
     }
   },

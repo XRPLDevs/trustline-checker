@@ -1,6 +1,8 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { XummSdkJwt } from 'xumm-sdk'
+import { toast } from 'sonner'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { useForm } from '@tanstack/react-form'
@@ -9,8 +11,6 @@ import { Button } from '@heroui/button'
 import { typography } from '@/components/Typography'
 import { useRequestAccountInfo } from '@/hooks'
 import { z } from 'zod'
-import type { AccountSet } from 'xrpl'
-import type { AccountInfoRes } from '@/app/api/xrpl/request/account-info/schema'
 import { stringToHex } from '@/utils/string'
 import {
   Modal,
@@ -20,18 +20,26 @@ import {
   ModalFooter,
   useDisclosure
 } from '@heroui/modal'
+import { toastConfig } from '@/config/site'
+import type { AccountSet } from 'xrpl'
+import type { AccountInfoRes } from '@/app/api/xrpl/request/account-info/schema'
 
 type AccountRoot = AccountInfoRes['root'] | null
 
-type SetAccountForm = {
-  domain: string
-}
-
 const schema = z.object({
-  domain: z.string()
+  domain: z
+    .string()
+    .max(256, { message: 'Maximum length is 256 bytes.' })
+    .regex(/^[a-z0-9.-]*$/, {
+      message:
+        'Only lowercase ASCII letters, numbers, hyphens, and dots are allowed.'
+    })
 })
 
 export default function AccountInfoUpdate() {
+  const tPage = useTranslations('AccountInfoUpdatePage')
+  const t = useTranslations('AccountInfoUpdate')
+
   const [accRoot, setAccRoot] = useState<AccountRoot>(null)
   const [payload, setPayload] = useState<{
     isReady: boolean
@@ -43,9 +51,9 @@ export default function AccountInfoUpdate() {
     nextAlways: ''
   })
 
-  const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { data: accountInfo } = useRequestAccountInfo()
+  const { data: accountInfo, refetch } = useRequestAccountInfo()
 
   useEffect(() => {
     if (accountInfo) {
@@ -64,15 +72,14 @@ export default function AccountInfoUpdate() {
       try {
         const strageJwt = localStorage.getItem('XummPkceJwt')
         const json = JSON.parse(strageJwt ?? '{}')
-
-        const jwt = json.jwt
-        const me = json.me
+        const { jwt, me } = json
 
         if (!jwt || !me) {
           throw new Error('JWT is not valid')
         }
 
         const xumm = new XummSdkJwt(jwt)
+
         const params: AccountSet = {
           TransactionType: 'AccountSet',
           Account: me.sub,
@@ -81,26 +88,38 @@ export default function AccountInfoUpdate() {
 
         const payload = await xumm.payload.createAndSubscribe(
           params,
-          (event) => {
-            console.log('event: ', event)
-            const { data } = event
-
+          ({ data }) => {
             const isSignedEvent = 'signed' in data
 
             if (isSignedEvent) {
               const isSigned = data.signed
               if (isSigned) {
-                console.log('送信されました: ', data.signed)
+                refetch()
                 onClose()
+                setPayload({
+                  isReady: false,
+                  qrCode: '',
+                  nextAlways: ''
+                })
+                toast.success(t('toast.success.title'), {
+                  description: t('toast.success.description'),
+                  ...toastConfig
+                })
               } else {
-                console.log('キャンセルされました')
                 onClose()
+                setPayload({
+                  isReady: false,
+                  qrCode: '',
+                  nextAlways: ''
+                })
+                toast.error(t('toast.error.title'), {
+                  description: t('toast.error.description'),
+                  ...toastConfig
+                })
               }
             }
           }
         )
-        console.log('payload: ', payload)
-        console.log('payload.meta: ', payload.created.refs.qr_png)
 
         setPayload({
           isReady: true,
@@ -111,13 +130,17 @@ export default function AccountInfoUpdate() {
         onOpen()
       } catch (error) {
         console.error('error: ', error)
+        toast.error('Failed', {
+          description: 'Transaction failed.',
+          ...toastConfig
+        })
       }
     }
   })
 
   return (
     <div className="container flex flex-col gap-10 mx-auto max-w-xl">
-      <h1 className={typography({ heading: 'pageTitle' })}>アカウント設定</h1>
+      <h1 className={typography({ heading: 'pageTitle' })}>{tPage('title')}</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault()
@@ -146,7 +169,7 @@ export default function AccountInfoUpdate() {
           </div>
           <div className="flex justify-end">
             <Button color="primary" onPress={() => form.handleSubmit()}>
-              送信
+              {t('form.button')}
             </Button>
           </div>
         </div>
@@ -156,7 +179,7 @@ export default function AccountInfoUpdate() {
         <ModalContent>
           <ModalHeader className="flex justify-center">
             <h2 className={typography({ heading: 'h6' })}>
-              Sign the transaction in your Xaman
+              {t('modal.title')}
             </h2>
           </ModalHeader>
           <ModalBody>
@@ -180,7 +203,7 @@ export default function AccountInfoUpdate() {
                 window.open(payload.nextAlways, '_blank')
               }}
             >
-              Open Xaman
+              {t('modal.button')}
             </Button>
           </ModalFooter>
         </ModalContent>
