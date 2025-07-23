@@ -14,6 +14,9 @@
       }
     }
   },
+  "AccountInfoUpdatePage": {
+    "title": "تحديث معلومات الحساب"
+  },
   "AboutPage": {
     "title": "حول TrustlineChecker",
     "invest": {
@@ -67,6 +70,25 @@
         "1": "من خلال تصوير حالة الحسابات والإعدادات، يسهل على المستخدمين التحكم في أمان الحسابات وتقليل المخاطر.",
         "2": "“فقط اثق بما يمكنك اثق به”",
         "3": "—تدعم TrustlineChecker تجربة Web3 الآمنة والشفافة."
+      }
+    }
+  },
+  "AccountInfoUpdate": {
+    "form": {
+      "button": "إرسال"
+    },
+    "modal": {
+      "title": "أثبت أنك قمت بتوقيع التحركة باستخدام Xaman",
+      "button": "فتح Xaman"
+    },
+    "toast": {
+      "success": {
+        "title": "نجاح",
+        "description": "تم إرسال التحركة بنجاح."
+      },
+      "error": {
+        "title": "فشل",
+        "description": "تم إلغاء التحركة."
       }
     }
   },

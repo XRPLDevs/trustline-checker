@@ -14,6 +14,9 @@
       }
     }
   },
+  "AccountInfoUpdatePage": {
+    "title": "账户设置"
+  },
   "AboutPage": {
     "title": "关于 TrustlineChecker",
     "invest": {
@@ -67,6 +70,25 @@
         "1": "通过可视化账户状态和设置，帮助用户轻松掌握账户安全，降低风险。",
         "2": "“只信任你能信任的东西”",
         "3": "——TrustlineChecker 支持透明且安全的 Web3 体验。"
+      }
+    }
+  },
+  "AccountInfoUpdate": {
+    "form": {
+      "button": "发送"
+    },
+    "modal": {
+      "title": "在 Xaman 中签名交易",
+      "button": "打开 Xaman"
+    },
+    "toast": {
+      "success": {
+        "title": "成功",
+        "description": "交易已发送。"
+      },
+      "error": {
+        "title": "错误",
+        "description": "交易已取消。"
       }
     }
   },

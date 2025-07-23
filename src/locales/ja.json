@@ -14,6 +14,9 @@
       }
     }
   },
+  "AccountInfoUpdatePage": {
+    "title": "アカウント設定"
+  },
   "AboutPage": {
     "title": "TrustlineCheckerについて",
     "invest": {
@@ -67,6 +70,25 @@
         "1": "誰でも簡単に、自分のアカウント状態を理解し、安心してXRPLを使いこなせる未来へ。",
         "2": "「信頼できるものだけを信頼する」",
         "3": "——そんな透明で安全なWeb3体験を、TrustlineCheckerは支えていきます。"
+      }
+    }
+  },
+  "AccountInfoUpdate": {
+    "form": {
+      "button": "送信"
+    },
+    "modal": {
+      "title": "Xamanでトランザクションを署名してください",
+      "button": "Xamanを開く"
+    },
+    "toast": {
+      "success": {
+        "title": "成功",
+        "description": "トランザクションが送信されました。"
+      },
+      "error": {
+        "title": "失敗",
+        "description": "トランザクションがキャンセルされました。"
       }
     }
   },
