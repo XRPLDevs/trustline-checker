@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { Alert } from '@heroui/alert'
-import { typography } from '@/app/[locale]/about/primitives'
+import { typography } from '@/components/Typography'
 
 export default function AboutPage() {
   const t = useTranslations('AboutPage')

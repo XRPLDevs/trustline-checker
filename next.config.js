@@ -11,6 +11,17 @@ const nextConfig = {
         permanent: false, // 一時的リダイレクト（302）
       },
     ]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'xumm.app',
+      }
+    ]
+  },
+  experimental: {
+    serverActions: true
   }
 }
 
